@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  database:
+    container_name: postgres
+    build:
+      context: ./database
+    ports:
+      - "5434:5432"
+    env_file:
+      - ./database/dev.env
+    volumes:
+      - database-volume:/var/lib/postgresql/data
+    networks:
+      - application_net
+ 
+  app:
+    build:
+      context: ./core/parking-control
+    ports:
+      - "3002:8080"
+    depends_on:
+      - database
+    networks:
+      - application_net
+
+volumes:
+  database-volume:
+
+networks:
+  application_net:
+    driver: bridge
+    

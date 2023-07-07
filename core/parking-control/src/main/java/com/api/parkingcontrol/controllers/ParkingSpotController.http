@@ -1,0 +1,46 @@
+@host = localhost
+@port = 3002
+@route = parking-spot
+@id = 7279d54e-f2d8-4bfe-bc43-e453fd37a777
+
+POST http://{{host}}:{{port}}/{{route}}
+Content-Type: application/json
+
+{
+    "parkingSpotNumber": "2059",
+    "licensePlateCar": "MQN9F69",
+    "brandCar": "chevrolet",
+    "modelCar": "celta",
+    "colorCar": "prata",
+    "responsibleName": "Jorge Henrique Frasson",
+    "apartment": "104",
+    "block": "paraju"
+}
+
+###
+
+GET http://{{host}}:{{port}}/{{route}}
+
+###
+
+GET http://{{host}}:{{port}}/{{route}}/{{id}}
+
+###
+
+PUT http://{{host}}:{{port}}/{{route}}/{{id}}
+Content-Type: application/json
+
+{
+    "parkingSpotNumber": "2060",
+    "licensePlateCar": "MQN9F68",
+    "brandCar": "chevrolet",
+    "modelCar": "celta",
+    "colorCar": "prata",
+    "responsibleName": "Jorge Henrique Frasson",
+    "apartment": "104",
+    "block": "paraju"
+}
+
+###
+
+DELETE http://{{host}}:{{port}}/{{route}}/{{id}}
